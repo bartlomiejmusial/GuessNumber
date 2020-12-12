@@ -2,6 +2,17 @@ from replit import clear
 import art
 from random import randint
 
+def check_answer(guess, number):
+    if guess == number:
+            clear()
+            print(art.win)
+            print(f"You got it!\nThe answer was {number}")
+            break
+        elif guess > number:
+            print("Too high.\nGuess again")
+        elif guess < number:
+            print("Too low.\nGuess again.")
+            
 game = True
 while(game):
     clear()
@@ -23,15 +34,7 @@ while(game):
     while(attempts > 0):
         print(f"You have {attempts} attempts remaining to guess the number.")
         guess = int(input("Make a guess: "))
-        if guess == number:
-            clear()
-            print(art.win)
-            print(f"You got it!\nThe answer was {number}")
-            break
-        elif guess > number:
-            print("Too high.\nGuess again")
-        elif guess < number:
-            print("Too low.\nGuess again.")
+        check_answer(guess, number)
         attempts -= 1
     if guess != number:
         clear()
