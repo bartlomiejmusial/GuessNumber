@@ -13,8 +13,7 @@ def check_answer(guess, number):
     elif guess < number:
         print("Too low.\nGuess again.")
 
-game = True
-while(game):
+def game():
     clear()
     print(art.logo)
     print("Welcome to the Number Guessing Game!")
@@ -28,7 +27,7 @@ while(game):
     else:
         print("\nIt's not one of the options!\nClick enter to start again")
         input()
-        continue
+        game()
     clear()
     print(art.logo)
     while(attempts > 0):
@@ -43,5 +42,7 @@ while(game):
         print(art.lose)
         print(f"You've run out of guesses\nThe answer was: {number}")
     again = input("Do you want to play again? Type 'yes' or 'no': ")
-    if again == 'no':
-        game = False
+    if again == 'yes':
+        game()
+    clear()
+game()
